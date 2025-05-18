@@ -7,21 +7,21 @@ on:
 
 jobs:
   deploy:
-     name: Deploy on local server
-     runs-on: self-hosted
+    name: Deploy on local server
+    runs-on: self-hosted
 
-     steps:
-     - name: Checkout code
-       uses: actions/checkout@v3
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-     - name: Stop existing container
-       run: docker compose down || true
+      - name: Stop existing container
+        run: docker compose down || true
 
-     - name: Build and run new container
-       run: docker compose up -d --build
+      - name: Build and run new container
+        run: docker compose up -d --build
 
-     - name: Notify on Discord
-       uses: Ilshidur/action-discord@v1.0.0
-       with:
-         webhook: ${{ secrets.DISCORD_WEBHOOK }}
-         message: "🚀 FastAPI desplegado en servidor local tras merge en develop."
+      - name: Notify on Discord
+        uses: tsickert/discord-webhook@v1
+        with:
+          webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
+          content: "🚀 FastAPI desplegado en servidor local tras merge en develop."
