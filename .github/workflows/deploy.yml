@@ -21,7 +21,9 @@ jobs:
         run: docker compose up -d --build
 
       - name: Notify on Discord
-        uses: tsickert/discord-webhook@v1
-        with:
-          webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
-          content: "🚀 FastAPI desplegado en servidor local tras merge en develop."
+        run: |
+          curl -H "Content-Type: application/json" \
+               -X POST \
+               -d '{"content": "🚀 FastAPI desplegado en servidor local tras merge en develop."}' \
+               ${{ secrets.DISCORD_WEBHOOK }}
+
