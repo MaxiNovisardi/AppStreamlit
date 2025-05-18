@@ -21,7 +21,7 @@ jobs:
        run: docker compose up -d --build
 
      - name: Notify on Discord
-       uses: Ilshidur/action-discord@master
+       uses: Ilshidur/action-discord@v1.0.0
        with:
          webhook: ${{ secrets.DISCORD_WEBHOOK }}
          message: "🚀 FastAPI desplegado en servidor local tras merge en develop."
