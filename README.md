@@ -17,11 +17,11 @@ A Streamlit application that allows users to upload an image and automatically r
 - Python 3.8+
 - pip
 
-### Installation
+### Installation (Local Python)
 
 1. Clone the repository
 ```bash
-git clone https://github.com/tyler-simons/BackgroundRemoval.git
+git https://github.com/MaxiNovisardi/AppStreamlit.git
 cd BackgroundRemoval
 ```
 
@@ -43,6 +43,33 @@ streamlit run bg_remove.py
 ```
 
 The app will be available at http://localhost:8501 in your web browser.
+
+---
+
+## 🐳 Running with Docker
+
+### Requirements
+
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/)
+
+### Steps
+
+1. Build and run the container:
+
+```bash
+docker-compose up --build
+```
+
+2. Access the app at:
+
+```
+http://localhost:8501
+```
+
+The container uses `bg_remove.py` as the entry point and exposes port `8501` for the Streamlit interface.
+
+---
 
 ## Usage Guidelines
 
