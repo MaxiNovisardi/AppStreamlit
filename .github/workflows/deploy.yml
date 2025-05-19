@@ -24,6 +24,6 @@ jobs:
         run: |
           curl -H "Content-Type: application/json" \
                -X POST \
-               -d '{"content": "🚀 FastAPI desplegado en servidor local tras merge en develop."}' \
+               -d '{"content": "Se realizo un cambio en la aplicación."}' \
                ${{ secrets.DISCORD_WEBHOOK }}
 
